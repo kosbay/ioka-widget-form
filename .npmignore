@@ -1,5 +1,7 @@
 /node_modules
 /src
+/build
+
 .babelrc
 .gitignore
 .webpack.config.js

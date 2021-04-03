@@ -6,7 +6,7 @@ module.exports = env => {
       parent: `./src/components/widget.js`,
     },
     output: {
-      path: path.resolve(__dirname, `./build`),
+      path: path.resolve(__dirname, `./`),
       filename: 'index.js'
     }
   })
