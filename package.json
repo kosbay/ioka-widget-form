@@ -4,7 +4,8 @@
   "description": "A lesson on Zoid and its uses",
   "main": "index.js",
   "scripts": {
-    "b:1": "concurrently --kill-others \"webpack -w --mode development --env.TUTORIAL=tutorial1\" \"serve ./src/tutorial1 -p 3000\"",
+    "build": "concurrently --kill-others \"webpack --mode production\"",
+    "b:1": "concurrently --kill-others \"webpack --mode production --env.TUTORIAL=tutorial1\"",
     "b:2": "concurrently --kill-others \"webpack -w --mode development --env.TUTORIAL=tutorial2\" \"serve ./src/tutorial2 -p 3000\"",
     "b:3": "concurrently --kill-others \"webpack -w --mode development --env.TUTORIAL=tutorial3\" \"serve ./src/tutorial3 -p 3000\"",
     "present:build": "webpack -w --mode development --env.TUTORIAL=presentation",
