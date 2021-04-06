@@ -1,9 +1,10 @@
 {
   "name": "ioka-widget",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "IOKA Payment form",
   "main": "index.js",
   "scripts": {
+    "start": "concurrently --kill-others \"webpack -w --mode development\" \"serve ./src -p 3002\"",
     "build": "concurrently --kill-others \"webpack --mode production\"",
     "prepublish": "npm run build"
   },

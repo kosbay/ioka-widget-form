@@ -4,6 +4,56 @@
   </head>
   <body>
     <div id="zoid-component"></div>
-    <script src="./dist/widget.js"></script>
+    <button onclick="payFunction()">INIT IOKA PAYMENT</button>
+    <script src="./dist/index.js"></script>
+    <script>
+      const options = {
+        alternateText: ', are you kidding me? Am I joke to you?',
+        showEmail: false,
+        handleFunction: (response) => {
+          console.log("zoid local function 2", response)
+          onResponse(response)
+        },
+        widgetProps: {
+          cardForm: {
+            hideErrorMessages: true,
+            hideEmail: true,
+            hideCardContainer: true,
+            buttonText: "Пополнить - ",
+            title: "Пополнить счёт iDoctor.kz"
+          },
+          styles: {
+            inputContainer: {
+              border: "1px solid #CBCBCC",
+              borderRadius: "4px",
+              height: "32px"
+            },
+            inputs: {
+              padding: "8px",
+              height: "100%"
+            },
+            submitButton: {
+              height: "32px",
+              borderRadius: "4px"
+            },
+            buttonTextStyle: {
+              fontSize: "14px"
+            },
+            middleContainer: {
+              margin: "0"
+            }
+          }
+        }
+      }
+      const IokaWidgetItem = new IokaWidget({
+        src: "http://localhost:3000/forms/3739c139-deb5-482a-8b54-b0e82d8eb1be",
+        elementId: "zoid-component",
+        options
+      })
+
+      const payFunction = () => {
+        IokaWidgetItem.initPayment()
+      }
+    </script>
   </body>
 </html>

@@ -7,7 +7,8 @@ module.exports = env => {
     },
     output: {
       path: path.resolve(__dirname, `./`),
-      filename: 'index.js'
+      filename: "index.js",
+      publicPath: "/"
     }
   })
 };
