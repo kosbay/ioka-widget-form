@@ -3,7 +3,23 @@ import zoid from 'zoid'
 (function(W) {
   const _tagName = "custom-iframe-loader";
   W.IokaWidget = class IokaWidget {
-    constructor({ src, elementId, options }) {
+    constructor({ src, elementId, options, publicKey }) {
+      if(src === undefined) {
+        throw new Error("src is undefined");
+      }
+
+      if(elementId === undefined) {
+        throw new Error("elementId is undefined");
+      }
+
+      if(options === undefined) {
+        throw new Error("options is undefined");
+      }
+
+      if(publicKey === undefined) {
+        throw new Error("publicKey is undefined");
+      }
+
       this.src = src;
       this.element = `#${elementId}`;
       this.options = options;
@@ -18,7 +34,7 @@ import zoid from 'zoid'
     }
 
     initPayment() {
-      this.frameInit(this.options).render(this.element)
+      this.frameInit(this.options).render(this.element);
     }
   }
 

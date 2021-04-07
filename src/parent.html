@@ -1,26 +1,43 @@
 <html>
   <head>
     <title>Zoid Lesson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
     <div id="zoid-component"></div>
     <button onclick="payFunction()">INIT IOKA PAYMENT</button>
+    <button onclick="closeFrame()">Close Frame</button>
     <script src="./dist/index.js"></script>
     <script>
+      const onError = (err) => {
+        console.log("on error", err)
+      }
+
+      const onSuccess = (res) => {
+        console.log("res", res)
+      }
+
       const options = {
-        alternateText: ', are you kidding me? Am I joke to you?',
-        showEmail: false,
-        handleFunction: (response) => {
-          console.log("zoid local function 2", response)
-          onResponse(response)
+        onError: (err) => {
+          onError(err)
+        },
+        onSuccess: (res) => {
+          onSuccess(res)
+          this.close()
         },
         widgetProps: {
           cardForm: {
             hideErrorMessages: true,
             hideEmail: true,
             hideCardContainer: true,
+            hideResultMessage: true,
             buttonText: "Пополнить - ",
-            title: "Пополнить счёт iDoctor.kz"
+            title: "Пополнить счёт iDoctor.kz",
+            cardNumberLabel: "",
+            expireMonthLabel: "",
+            expireYearLabel: "",
+            cvcLabel: "",
+            cardHolderLabel: ""
           },
           styles: {
             inputContainer: {
@@ -45,10 +62,12 @@
           }
         }
       }
+
       const IokaWidgetItem = new IokaWidget({
-        src: "http://localhost:3000/forms/3739c139-deb5-482a-8b54-b0e82d8eb1be",
+        src: "http://localhost:3000/forms/d1ae13fb-2a4e-49fd-8294-a1857fe00df1",
         elementId: "zoid-component",
-        options
+        options,
+        publicKey: ""
       })
 
       const payFunction = () => {
