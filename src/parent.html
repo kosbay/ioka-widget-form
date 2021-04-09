@@ -1,12 +1,11 @@
 <html>
   <head>
-    <title>Zoid Lesson</title>
+    <title>IOKA | example</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <div id="zoid-component"></div>
+    <div id="ioka-widget"></div>
     <button onclick="payFunction()">INIT IOKA PAYMENT</button>
-    <button onclick="closeFrame()">Close Frame</button>
     <script src="./dist/index.js"></script>
     <script>
       const onError = (err) => {
@@ -58,16 +57,19 @@
             },
             middleContainer: {
               margin: "0"
+            },
+            brandImage: {
+              top: "-4px"
             }
           }
         }
       }
 
       const IokaWidgetItem = new IokaWidget({
-        src: "http://localhost:3000/forms/d1ae13fb-2a4e-49fd-8294-a1857fe00df1",
-        elementId: "zoid-component",
+        src: "https://dev.ioka.kz/forms/40b45a01-9308-43ae-84a3-011f4e3f685b/",
+        elementId: "ioka-widget",
         options,
-        publicKey: ""
+        publicKey: "public key"
       })
 
       const payFunction = () => {
